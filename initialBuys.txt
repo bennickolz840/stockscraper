@@ -1,11 +1,9 @@
-Stock,Symbol,Buy,URL
 Overstock,OSTL,NA,https://finance.yahoo.com/quote/OSTK?p=OSTK&.tsrc=fin-srch
 Zoom,ZM,260.29,https://finance.yahoo.com/quote/ZM?p=ZM&.tsrc=fin-srch
 Tesla,TSLA,1386.60,https://finance.yahoo.com/quote/TSLA?p=TSLA&.tsrc=fin-srch
 Cloudera,CLDR,12.57,https://finance.yahoo.com/quote/CLDR?p=CLDR&.tsrc=fin-srch
 Frequency,FREQ,22.62,https://finance.yahoo.com/quote/FREQ?p=FREQ&.tsrc=fin-srch
-Fastly,FSLY,88.07,https://finance.yahoo.com/quote/FSLY?p=FSLY&.tsrc=fin-srch
+Fastly,FSLY,NA,https://finance.yahoo.com/quote/FSLY?p=FSLY&.tsrc=fin-srch
 TradeDesk,TTD,NA,https://finance.yahoo.com/quote/TTD?p=TTD&.tsrc=fin-srch
 PlugPower,PLIG,9.13,https://finance.yahoo.com/quote/PLUG?p=PLUG&.tsrc=fin-srch
 Docusign,DOCU,197.06,https://finance.yahoo.com/quote/DOCU?p=DOCU&.tsrc=fin-srch
-
