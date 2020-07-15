@@ -2,9 +2,10 @@ import numpy as np
 import os
 from scraper import stock
 from bs4 import BeautifulSoup
+import sys
 
 def analyzer():
-    os.chdir(r'/home/bnichola/Python/Stock_Scraper')
+    os.chdir(sys.path[0])
     firstBuys = np.loadtxt('initialBuys.txt', dtype = str, delimiter=',')
     symbols = firstBuys[:,1]
     initialBuys = firstBuys[:,2]
@@ -64,3 +65,4 @@ def analyzer():
         #         referencePrices = 
         except:
             print("Failed to scrape for {0}".format(stocks.symbol))
+analyzer()
