@@ -5,11 +5,11 @@ from datetime import timedelta
 import numpy as np
 import time 
 
-class stock():
+class stocks():
 
-    def __init__(self, symbol, initialBuys):
+    def __init__(self, symbol, buyPrice):
         self.symbol=symbol
-        self.initialBuys=initialBuys
+        self.buyPrice=buyPrice
         
     def priceScraper(self, url):
         r = requests.get(url)
