@@ -14,7 +14,14 @@ class stocks():
     def priceScraper(self, url):
         r = requests.get(url)
         soup = BeautifulSoup(r.text, 'lxml')
-        currentPriceStr = soup.find_all('div', {'class': 'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text
+        try:
+            currentPriceStr = soup.find_all('div', {'class': 'My(6px) Pos(r) smartphone_Mt(6px)'})[0].find('span').text
+        except IndexError:
+            try:
+                currentPriceStr = soup.find_all('div', {'class': 'D(ib) smartphone_Mb(10px) W(70%) W(100%)--mobp smartphone_Mt(6px)'})[0].find('span').text
+            except IndexError:
+                print("Could not find price in page")
+
         currentPrice = float(currentPriceStr.replace(',',''))
         return currentPrice
 

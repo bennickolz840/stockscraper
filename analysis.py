@@ -22,7 +22,7 @@ def symboldataFinder(symbol):
     symbols = history[:,0]
     symbolindex = np.empty
     symbolIndex = np.where(symbols == symbol)
-    allPrices = np.array(history[symbolIndex[0][:],1]).astype(np.float)
+    allPrices = np.array(history[symbolIndex[0][:],1]).astype(float)
     times = np.array(history[symbolIndex[0][:],2]).astype(datetime)
     for i in range (0, len(times)):
         times[i] = datetime.strptime(times[i], fmt)
@@ -51,8 +51,8 @@ def priceVariationFinder(symbol, timescale, start, end):
         priceDeltaUp = (max(priceRange) - averagePrice) / averagePrice * 100
         priceDeltaDown = (min(priceRange) - averagePrice) / averagePrice * 100
         return priceDeltaUp, priceDeltaDown
-    except ZeroDivisionError:
-        print("No Prices for {0} in this time frame.".format(symbol))
+    except ValueError or TypeError:
+        return 0 , 0
 
 def priceHistoryComparison(symbol, price, sign):
     times, allPrices = symboldataFinder(symbol)
@@ -82,7 +82,7 @@ def analyzer():
     for i in range(0, len(symbols)):
         stock = stocks(symbols[i], buyPrice[i])
         allTimes, allPrices = symboldataFinder(stock.symbol)
-        averagePrice = averageCalculator(stock.symbol, "days", 1, 0) 
+        averagePrice = averageCalculator(stock.symbol, "days", 1, 0)
         priceVariationUp_1Day, priceVariationDown_1Day  = priceVariationFinder(stock.symbol, "days", 1, 0)
         latestPrice = allPrices[-1]
         if stock.buyPrice != "NA":
@@ -106,5 +106,5 @@ def analyzer():
                 print("BUY " + stock.symbol + " " + str("%2f" % currentPerformance) + " " + str(latestPrice))
                 Notify().send("BUY + " + stock.symbol + " is down " + str("%2f" % gain) + "%.")
                 buyAndSell.append([stock.symbol, "BUY"])
+              
 analyzer()
-#plotter("TSLA", "days", 5, 0)
