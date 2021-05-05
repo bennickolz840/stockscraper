@@ -9,7 +9,7 @@ from Stocks import stocks
 
 os.chdir(sys.path[0])
 
-firstBuys = np.loadtxt('initialBuys.txt', dtype = str, delimiter=',')
+firstBuys = np.loadtxt('initialBuys.conf', dtype = str, delimiter=',')
 symbols = firstBuys[:,1]
 initialBuys = firstBuys[:,2]
 
